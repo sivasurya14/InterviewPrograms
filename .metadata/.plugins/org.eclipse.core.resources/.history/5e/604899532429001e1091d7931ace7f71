@@ -1,0 +1,19 @@
+package streamApiWNT;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CountSpaceUsingStream {
+	
+	public static void main(String[] args) {
+		List<String> list = Arrays.asList("siva"," ","dinesh","banana","");
+		
+		 list.forEach(x->System.out.println(x));
+		
+		
+		
+		
+		
+	}
+
+}

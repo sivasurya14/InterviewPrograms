@@ -1,0 +1,10 @@
+package streamAPIInteger;
+
+public class ConcatInteger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

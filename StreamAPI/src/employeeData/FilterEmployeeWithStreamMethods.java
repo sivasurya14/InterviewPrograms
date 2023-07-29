@@ -1,0 +1,23 @@
+package employeeData;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class FilterEmployeeWithStreamMethods {
+	public static void main(String[] args) {
+	
+		
+		List<Employee>  listOfEmployees= UseEmployee.getEmployees();
+		
+	//	listOfEmployees.stream().collect(Collectors.toList()).forEach(System.out::println);	
+		 
+		
+		System.out.println();
+		System.out.println("Get the First name from Database : ");
+		
+		  Employee getTheFirstName = listOfEmployees.stream().filter(name->name.getName().startsWith("Michael Johnson")).findFirst().get();
+		  
+		  System.out.println(getTheFirstName);
+	}
+}
+ 

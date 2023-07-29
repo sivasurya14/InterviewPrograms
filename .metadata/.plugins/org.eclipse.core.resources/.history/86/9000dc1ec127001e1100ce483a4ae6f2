@@ -1,0 +1,54 @@
+package streamAPIInteger;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class ContainDuplicateInArray {
+
+	public static boolean checkDuplicate(int[] input) {
+
+		List<Integer> listOfNUmbers = Arrays.stream(input).boxed().collect(Collectors.toList());
+
+		Set<Integer> withoutDuplicateNumbers = new HashSet<>(listOfNUmbers);
+
+		if (listOfNUmbers.size() == withoutDuplicateNumbers.size()) {
+
+			return false;
+		} else {
+
+			return true;
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter the size of the array: ");
+		int arr_size = 0;
+		if (sc.hasNextInt()) {
+			arr_size = sc.nextInt();
+		}
+
+		// Initialize the array's
+		// size using user input
+		int[] input = new int[arr_size];
+
+		// Take user elements for the array
+		System.out.println("Enter the elements of the array: ");
+		for (int i = 0; i < arr_size; i++) {
+			if (sc.hasNextInt()) {
+				input[i] = sc.nextInt();
+			}
+		}
+
+		System.out.println("Array Contains Duplicate values : "+checkDuplicate(input));
+
+	}
+}

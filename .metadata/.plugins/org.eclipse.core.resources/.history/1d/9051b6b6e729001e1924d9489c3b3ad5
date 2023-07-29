@@ -1,0 +1,27 @@
+package streamAPIInteger;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class StreamAPIStringExample {
+
+	public static void main(String[] args) {
+
+		List<String> values = Arrays.asList("siva", "prakash", "siva", "dinesh");
+
+		Set<String> duplicateNames = new HashSet<>();
+
+		values.stream().filter(c -> !duplicateNames.add(c)).collect(Collectors.toSet()).forEach(System.out::println);
+
+		
+		
+		Set<String> withoutDuplicate = values.stream().collect(Collectors.toSet());
+
+		withoutDuplicate.forEach(System.out::println);
+
+	}
+
+}

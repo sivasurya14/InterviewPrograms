@@ -1,0 +1,22 @@
+package testReview;
+
+public class FindLeapYear {
+
+	public static String isLeap(int year) {
+
+		if (year % 4 == 0 && year % 400 != 0 || year % 400 == 0) {
+
+			return year + "is leap Year ";
+		} else
+
+			return year + "is not a Leap year ";
+	}
+
+	public static void main(String[] args) {
+
+		FindLeapYear find = new FindLeapYear();
+
+		System.out.println(find.isLeap(1999));
+
+	}
+}

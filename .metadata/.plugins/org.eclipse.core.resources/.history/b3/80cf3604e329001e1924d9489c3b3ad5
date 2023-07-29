@@ -1,0 +1,104 @@
+package streamAPIInteger;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class StreamAPIInteger {
+
+	public static void main(String[] args) {
+
+		System.out.println("Converting Array into Stream ");
+
+		int[] no = { 2, 4, 5, 6, 7 };
+
+		List<Integer> sortedNumber = Arrays.asList(23, 45, 30, 30, 63, 40, 40, 12, 24, 12, 24);
+
+		System.out.println("Using stream print even numbers : ");
+
+		sortedNumber.stream().filter(x -> x % 2 == 0).forEach(System.out::println);
+
+		System.out.println("Using Stream Print Duplicate Numbers in Java : ");
+
+		Set<Integer> number = new HashSet<>();
+		sortedNumber.stream().filter(x -> number.add(x)).forEach(System.out::println);
+
+		System.out.println(number);
+
+		System.out.println("Print Numbers Which is Start with 1 : ");
+
+		sortedNumber.stream().map(s -> s + " ").filter(x -> x.startsWith("1")).forEach(System.out::println);
+
+		System.out.println("Print the First Elelment in Array : ");
+
+		sortedNumber.stream().findFirst().ifPresent(System.out::println);
+
+		System.out.println("Find the maximum Numbers in Array Using Stream : ");
+
+		int max = sortedNumber.stream().max(Integer::compare).get();
+
+		System.out.println(max);
+
+		System.out.println("Find the Minimum Salary: ");
+
+		int minimumSalary = sortedNumber.stream().min(Integer::compare).get();
+
+		System.out.println(minimumSalary);
+
+		System.out.println("Print First Non Repated Numbers In String ");
+		String input = "Java articles are Awesome";
+		Character result = input.chars() // Stream of String
+				.mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object
+																					// and then to lowercase
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) // Store
+																												// the
+																												// chars
+																												// in
+																												// map
+																												// with
+																												// count
+				.entrySet().stream().filter(entry -> entry.getValue() == 1L).map(entry -> entry.getKey()).findFirst()
+				.get();
+		System.out.println(result);
+
+		System.out.println("Print First Repated Numbers In String ");
+		Character result2 = input.chars() // Stream of String
+				.mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object
+																					// and then to lowercase
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) // Store
+																												// the
+																												// chars
+																												// in
+																												// map
+																												// with
+																												// count
+				.entrySet().stream().filter(entry -> entry.getValue() == 1L).map(entry -> entry.getKey()).findFirst()
+				.get();
+		System.out.println(result2);
+
+		System.out.println("Find how many strings lenth have more than 3 alphabet : ");
+		List<String> values = Arrays.asList("sivaa", "davitha", "dinesh", "anu");
+
+		long valuess = values.stream().filter(x -> x.length() > 3).count();
+
+		System.out.println(valuess);
+		System.out.println();
+		System.out.println("Print String values which is greater thann 3");
+		values.stream().filter(x -> x.length() > 3).forEach(System.out::println);
+
+		System.out.println();
+		System.out.println("Print Without Duplicate Numbers : ");
+		Set<Integer> withoutDuplicate = sortedNumber.stream().sorted(Collections.reverseOrder())
+				.collect(Collectors.toSet());
+
+		withoutDuplicate.forEach(System.out::println);
+
+	}
+}

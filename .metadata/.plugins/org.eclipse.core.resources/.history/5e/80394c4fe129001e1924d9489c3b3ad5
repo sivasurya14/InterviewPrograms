@@ -1,0 +1,33 @@
+package streamAPIInteger;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class RemoveDuplicateCharFromString {
+
+	public static void main(String[] args) {
+
+		String name = "siva";
+
+		StringBuilder newname = new StringBuilder();
+
+		Map<Character, Long> singleCharacter = name.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+
+		singleCharacter.forEach((k, v) -> {
+
+			if (v <= 1) {
+
+				newname.append(k);
+
+			}
+
+		});
+
+		System.out.println(newname);
+
+	}
+
+}

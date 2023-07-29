@@ -1,0 +1,19 @@
+package onwardTechnology;
+
+public class FindFact {
+
+	public static long factorial(int num) {
+
+		if (num >= 1) {
+			return num * factorial(num - 1);
+		} else
+			return num;
+	}
+
+	public static void main(String[] args) {
+            
+		System.out.println("the factorial of "+factorial(10));
+ 
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.lamdaexpression;
+
+public class UseInterface2 {
+
+	public static void main(String[] args) {
+
+		Interface2 sd = () -> System.out.println("printingg.....");
+
+		sd.display();
+
+	}
+}
